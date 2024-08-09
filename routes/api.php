@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BrandsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,9 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);   
     Route::delete('/delete', [AuthController::class, 'deleteUser']);
 });
+
+Route::get('/brands', [BrandsController::class, 'index']);
+Route::get('/brands/{id}', [BrandsController::class, 'show']);
+Route::post('/brands', [BrandsController::class, 'store']);
+Route::put('/brands/{id}', [BrandsController::class, 'update']);
+Route::delete('/brands/{id}', [BrandsController::class, 'delete']);
