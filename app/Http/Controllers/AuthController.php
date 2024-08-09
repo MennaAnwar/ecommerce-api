@@ -114,4 +114,22 @@ class AuthController extends Controller
         ]);
     }
 
+
+    /**
+     * Delete the authenticated user.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteUser() {
+        $user = auth()->user();
+
+        if (!$user) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+
+        $user->delete();
+
+        return response()->json(['message' => 'User successfully deleted']);
+    }
+
 }
