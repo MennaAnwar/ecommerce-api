@@ -41,3 +41,7 @@ Route::get('/categories/{id}', [CategoriesController::class, 'show']);
 Route::post('/categories', [CategoriesController::class, 'store']);
 Route::put('/categories/{id}', [CategoriesController::class, 'update']);
 Route::delete('/categories/{id}', [CategoriesController::class, 'delete']);
+
+Route::post('/location', [CategoriesController::class, 'store']);
+Route::put('/location/{id}', [CategoriesController::class, 'update']);
+Route::delete('/location/{id}', [CategoriesController::class, 'delete']);
