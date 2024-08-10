@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,12 @@ Route::get('/products/{id}', [ProductsController::class, 'show']);
 Route::post('/products', [ProductsController::class, 'store']);
 Route::put('/products/{id}', [ProductsController::class, 'update']); 
 Route::delete('/products/{id}', [ProductsController::class, 'delete']);
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/orders', [OrdersController::class, 'index']);
+    Route::get('/orders/{id}', [OrdersController::class, 'show']);
+    Route::post('/orders', [OrdersController::class, 'store']);
+    Route::get('/orders/{id}/items', [OrdersController::class, 'get_order_items']);
+    Route::get('/user/{id}/orders', [OrdersController::class, 'get_user_orders']);
+    Route::put('/orders/{id}/status', [OrdersController::class, 'change_order_status']);
+});
