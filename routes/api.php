@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,9 @@ Route::get('/brands/{id}', [BrandsController::class, 'show']);
 Route::post('/brands', [BrandsController::class, 'store']);
 Route::put('/brands/{id}', [BrandsController::class, 'update']);
 Route::delete('/brands/{id}', [BrandsController::class, 'delete']);
+
+Route::get('/categories', [CategoriesController::class, 'index']);
+Route::get('/categories/{id}', [CategoriesController::class, 'show']);
+Route::post('/categories', [CategoriesController::class, 'store']);
+Route::put('/categories/{id}', [CategoriesController::class, 'update']);
+Route::delete('/categories/{id}', [CategoriesController::class, 'delete']);
